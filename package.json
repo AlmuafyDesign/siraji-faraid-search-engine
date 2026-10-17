@@ -1,0 +1,11 @@
+{
+  "name": "siraji-faraid-research-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A source-first Bengali Siraji and Hanafi inheritance research search app",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "engines": { "node": ">=22.13" }
+}

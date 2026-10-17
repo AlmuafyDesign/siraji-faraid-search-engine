@@ -1,0 +1,8 @@
+data/*.sqlite
+data/*.sqlite-shm
+data/*.sqlite-wal
+data/admin-token.txt
+node_modules/
+*.log
+.env
+.DS_Store
