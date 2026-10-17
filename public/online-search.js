@@ -1,1 +1,47 @@
-(()=>{const root=document.querySelector('#results'),field=document.querySelector('#query'),form=document.querySelector('#searchForm');if(!root||!field||!form)return;const add=()=>{root.querySelector('.online-search-row')?.remove();const q=field.value.trim();if(!q)return;const params=new URLSearchParams({q,remove_harakat:'1',db:'21',table:''});const row=document.createElement('div');row.className='online-search-row';row.style.cssText='grid-column:1/-1;display:grid;gap:5px;padding:13px 16px;background:#edf4ee;border:1px solid #dbe7dc;border-radius:12px';const link=document.createElement('a');link.className='small-button';link.style.cssText='justify-self:start;text-decoration:none;font-weight:600';link.target='_blank';link.rel='noopener noreferrer';link.href='https://www.shamelabangla.com/search.php?'+params.toString();link.textContent='শামেলা বাংলা · ২১ নম্বর ফারায়েজ বিভাগে অনলাইনে খুঁজুন ↗';const note=document.createElement('span');note.style.cssText='font-size:11px;color:#65766e';note.textContent='অনলাইন ফল, পৃষ্ঠা ও কিতাবের তথ্য শামেলা বাংলায় খুলবে।';row.append(link,note);root.prepend(row)};new MutationObserver(add).observe(root,{childList:true});field.addEventListener('input',add);form.addEventListener('submit',add)})();
+(()=>{
+  const root=document.querySelector('#results');
+  const field=document.querySelector('#query');
+  const form=document.querySelector('#searchForm');
+  if(!root||!field||!form)return;
+  const add=()=>{
+    const query=field.value.trim();
+    const old=root.querySelector('.online-search-row');
+    if(!query){old?.remove();return;}
+    if(old?.dataset.query===query)return;
+    old?.remove();
+    const params=new URLSearchParams({q:query,remove_harakat:'1',db:'21',table:''});
+    const searchUrl='https://www.shamelabangla.com/search.php?'+params.toString();
+    const row=document.createElement('section');
+    row.className='online-search-row';
+    row.dataset.query=query;
+    row.style.cssText='grid-column:1/-1;display:grid;gap:10px;padding:14px;background:#edf4ee;border:1px solid #dbe7dc;border-radius:14px';
+    const header=document.createElement('div');
+    header.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap';
+    const label=document.createElement('strong');
+    label.textContent='শামেলা বাংলা · ফারায়েজ বিভাগের অনলাইন ফল';
+    label.style.cssText='font-size:14px;color:#19362e';
+    const link=document.createElement('a');
+    link.className='small-button';
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    link.href=searchUrl;
+    link.textContent='আলাদা ট্যাবে খুলুন ↗';
+    link.style.cssText='text-decoration:none;font-weight:600';
+    header.append(label,link);
+    const note=document.createElement('span');
+    note.textContent='ফল শামেলা বাংলা থেকে সরাসরি দেখানো হচ্ছে—কিতাব, খণ্ড, পৃষ্ঠা ও উদ্ধৃতির মূল সূত্রসহ।';
+    note.style.cssText='font-size:11px;color:#65766e';
+    const frame=document.createElement('iframe');
+    frame.title='শামেলা বাংলা ফারায়েজ অনুসন্ধানের ফল';
+    frame.src=searchUrl;
+    frame.loading='lazy';
+    frame.referrerPolicy='no-referrer';
+    frame.style.cssText='display:block;width:100%;height:72vh;min-height:620px;border:1px solid #dbe3da;border-radius:10px;background:#fff';
+    row.append(header,note,frame);
+    root.prepend(row);
+  };
+  new MutationObserver(add).observe(root,{childList:true});
+  field.addEventListener('input',add);
+  form.addEventListener('submit',add);
+  add();
+})();
