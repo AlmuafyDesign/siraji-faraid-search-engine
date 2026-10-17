@@ -1,12 +1,24 @@
 {
   "report_date": "2026-10-17",
-  "scope": "This report counts only records actually stored in the local application database.",
-  "books_in_local_database": 1,
-  "volumes_imported": 0,
-  "chapters_imported": 0,
-  "passages_indexed": 0,
-  "passages_human_reviewed": 0,
+  "scope": "The bundled corpus shipped by GitHub Pages is counted separately from user imports saved only in each browser profile.",
+  "bundled_books": 1,
+  "bundled_chapters": 11,
+  "bundled_passages_indexed": 40,
+  "bundled_passages_human_reviewed": 0,
+  "browser_local_imports_counted": false,
   "sources": [
+    {
+      "title": "ব্যবহারকারী-প্রদত্ত সিরাজী দলিল সংকলন",
+      "original_source": "User-provided الدليل.odt, as identified in the user's public al-muafy-faraid repository JSON.",
+      "source_file": "https://github.com/AlmuafyDesign/al-muafy-faraid/blob/main/Almuafy%20Fi%20Halli%20siraji/data/siraji.json",
+      "local_file": "public/data/siraji-evidence.json",
+      "chapters": 11,
+      "indexed_passages": 40,
+      "extraction_method": "Structured JSON fields converted into searchable passages; no book text was downloaded from Shamela.",
+      "verification_status": "IMPORTED_UNREVIEWED",
+      "access_or_rights_notes": "User authorized this app project and the source JSON is already public in the user's repository. Rights to the underlying quoted works are not independently verified.",
+      "known_gaps": "Printed book title, edition, author attribution, volume, and page mapping are not established by this JSON. sourceRow is an ODT row label and is not presented as a book page. Not a complete Sirajiyyah book or a full Shamela corpus."
+    },
     {
       "title": "السراجية في الميراث",
       "author_attribution": "سراج الدين محمد بن عبد الرشيد السجاوندي الحنفي (as stated on the online book title page)",
@@ -14,21 +26,11 @@
       "original_source": "Dawat-e-Islami / Al Madina Library",
       "url": "https://arabicdawateislami.net/bookslibrary/3465/page/1",
       "retrieval_method": "Bibliographic page and its table of contents inspected. No book text was downloaded or copied into the local corpus.",
-      "acquired_date": null,
-      "access_checked_date": "2026-10-17",
-      "license_or_access_notes": "The site states copyright © 2024 Dawat-e-Islami IT Department. Permission to republish or bulk index was not verified. No bulk retrieval was attempted.",
       "volumes_imported": 0,
       "chapters_imported": 0,
       "indexed_passages": 0,
-      "extraction_method": "Not imported",
-      "ocr_status": "Not applicable",
       "verification_status": "REMOTE_REFERENCE_ONLY",
       "known_gaps": "Local search cannot search the 112 pages visible on the remote site; edition year, print page mapping, and reproduction permission remain unknown."
     }
-  ],
-  "metadata_cross_check": {
-    "source": "Iraqi National Library and Archives bibliography catalogue record surfaced in search results",
-    "url": "https://bibliography.mk.iq/files/e795d2f6d195f7c2.pdf",
-    "status": "Catalog entry corroborates the author's attribution and title, but this is not an imported book text."
-  }
+  ]
 }
