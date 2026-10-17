@@ -1,6 +1,6 @@
-const CACHE_NAME='siraji-faraid-static-v1';
+const CACHE_NAME='siraji-faraid-static-v2';
 const ROOT=new URL('./',self.registration.scope);
-const SHELL=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./icon.svg'].map(path=>new URL(path,ROOT).href);
+const SHELL=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./icon.svg','./data/siraji-evidence.json'].map(path=>new URL(path,ROOT).href);
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('siraji-faraid-static-')&&key!==CACHE_NAME).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{const request=event.request,url=new URL(request.url);if(request.method!=='GET'||url.origin!==self.location.origin)return;if(request.mode==='navigate'){event.respondWith(fetch(request).then(response=>{const copy=response.clone();caches.open(CACHE_NAME).then(cache=>cache.put(request,copy));return response;}).catch(async()=>await caches.match(request)||await caches.match(new URL('./index.html',ROOT))));return;}event.respondWith(caches.match(request).then(cached=>cached||fetch(request).then(response=>{if(response.ok){const copy=response.clone();caches.open(CACHE_NAME).then(cache=>cache.put(request,copy));}return response;})));});
