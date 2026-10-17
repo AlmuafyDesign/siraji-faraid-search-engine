@@ -1,0 +1,34 @@
+{
+  "report_date": "2026-10-17",
+  "scope": "This report counts only records actually stored in the local application database.",
+  "books_in_local_database": 1,
+  "volumes_imported": 0,
+  "chapters_imported": 0,
+  "passages_indexed": 0,
+  "passages_human_reviewed": 0,
+  "sources": [
+    {
+      "title": "السراجية في الميراث",
+      "author_attribution": "سراج الدين محمد بن عبد الرشيد السجاوندي الحنفي (as stated on the online book title page)",
+      "edition": "The referenced online edition presents القمرية commentary and identifies Madina Library, Karachi. Publication year and pagination-to-print-edition mapping were not verified.",
+      "original_source": "Dawat-e-Islami / Al Madina Library",
+      "url": "https://arabicdawateislami.net/bookslibrary/3465/page/1",
+      "retrieval_method": "Bibliographic page and its table of contents inspected. No book text was downloaded or copied into the local corpus.",
+      "acquired_date": null,
+      "access_checked_date": "2026-10-17",
+      "license_or_access_notes": "The site states copyright © 2024 Dawat-e-Islami IT Department. Permission to republish or bulk index was not verified. No bulk retrieval was attempted.",
+      "volumes_imported": 0,
+      "chapters_imported": 0,
+      "indexed_passages": 0,
+      "extraction_method": "Not imported",
+      "ocr_status": "Not applicable",
+      "verification_status": "REMOTE_REFERENCE_ONLY",
+      "known_gaps": "Local search cannot search the 112 pages visible on the remote site; edition year, print page mapping, and reproduction permission remain unknown."
+    }
+  ],
+  "metadata_cross_check": {
+    "source": "Iraqi National Library and Archives bibliography catalogue record surfaced in search results",
+    "url": "https://bibliography.mk.iq/files/e795d2f6d195f7c2.pdf",
+    "status": "Catalog entry corroborates the author's attribution and title, but this is not an imported book text."
+  }
+}
